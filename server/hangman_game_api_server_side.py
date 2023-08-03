@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # SQLite database initialization
-DATABASE_NAME = 'hangman_db.sqlite3'
+DATABASE_NAME = 'data/hangman_db.sqlite3'
 
 
 def initialize_database():
@@ -47,7 +47,7 @@ def new_game():
     practice = data.get('practice', True)
 
     game_id = secrets.token_hex(16)
-    full_dictionary = build_dictionary("words_250000_train.txt")
+    full_dictionary = build_dictionary("data/words.txt")
     word = random.choice(full_dictionary)
     print ("word is ",word)
     tries_remains = 6  # You can adjust this value as needed
